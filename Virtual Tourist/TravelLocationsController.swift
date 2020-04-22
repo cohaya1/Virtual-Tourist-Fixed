@@ -31,6 +31,7 @@ class TravelLocationsViewController: UIViewController {
             super.viewDidLoad()
             mapView.delegate = self
             
+            coredataController = (UIApplication.shared.delegate as! AppDelegate).coredataController
             let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
             view.addGestureRecognizer(longTapGesture)
             
@@ -119,15 +120,15 @@ class TravelLocationsViewController: UIViewController {
         
     }
 
-    //MARK: DELEGATES
+   
 
     extension TravelLocationsViewController: MKMapViewDelegate {
         
-        //MARK: MAKE PIN
+        //MARK: MAKE THE PIN
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             
-            let reuseId = "pins"
+            let reuseId = "pin"
             var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
             
             if pinView == nil {
@@ -141,7 +142,7 @@ class TravelLocationsViewController: UIViewController {
             return pinView
         }
         
-        //MARK: TAPPED ANNOTATION VIEW
+        // segue to flckr view controller when you the press button
         
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             let pin = Pins(context: coredataController.viewContext)

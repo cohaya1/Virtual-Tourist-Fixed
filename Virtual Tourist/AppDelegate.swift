@@ -18,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
            coredataController.load()
            
-          let navigationController = window?.rootViewController as! UINavigationController
-           let travellocationviewController = navigationController.topViewController as! TravelLocationsViewController
-          travellocationviewController.coredataController = coredataController
+          
            return true
        }
 

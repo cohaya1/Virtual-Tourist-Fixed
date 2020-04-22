@@ -31,6 +31,7 @@ class FlickrAlbumViewController: UIViewController {
         
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
+             collectionView?.reloadData()
             pin()
             if case pinSelected.photos?.accessibilityElementCount() = 0 {
                 downloadPhotos()
@@ -50,7 +51,7 @@ class FlickrAlbumViewController: UIViewController {
             print("LAT: \(pinSelected.latitude)")
             print("LONG: \(pinSelected.longitude)")
             
-            collectionView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
+            collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         }
         
         //MARK: viewWillDisappear
