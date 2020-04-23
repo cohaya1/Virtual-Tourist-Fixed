@@ -51,8 +51,8 @@ class FlickrAlbumViewController: UIViewController {
             print("LAT: \(pinSelected.latitude)")
             print("LONG: \(pinSelected.longitude)")
             
-         //   collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-             collectionView.register(UINib(nibName: "cell", bundle: nil), forCellWithReuseIdentifier: "cell")
+           collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "FlickrAlbumCollectionViewCell")
+        //     collectionView.register(UINib(nibName: "FlickrAlbumCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FlickrAlbumCollectionViewCell")
             
         }
         
