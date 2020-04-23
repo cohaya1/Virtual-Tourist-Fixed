@@ -51,7 +51,9 @@ class FlickrAlbumViewController: UIViewController {
             print("LAT: \(pinSelected.latitude)")
             print("LONG: \(pinSelected.longitude)")
             
-            collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+         //   collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+             collectionView.register(UINib(nibName: "cell", bundle: nil), forCellWithReuseIdentifier: "cell")
+            
         }
         
         //MARK: viewWillDisappear
@@ -99,7 +101,7 @@ class FlickrAlbumViewController: UIViewController {
             }
         }
         
-        //MARK: SAVE PHOTOS
+       //SAVE THE PHOTOS
         
         func savePhotosToLocalStorage(photosArray: [UIImage]){
             for photo in photosArray {
