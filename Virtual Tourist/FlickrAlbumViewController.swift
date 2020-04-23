@@ -120,12 +120,14 @@ class FlickrAlbumViewController: UIViewController {
         
         func setupFetchedResultsController() {
             let fetchRequest: NSFetchRequest<Photos> = Photos.fetchRequest()
-            let predicate = NSPredicate(format: "pin == %@", pinSelected)
+            
+            let predicate = NSPredicate(format: "pins == %@", pinSelected)
+            
             fetchRequest.predicate = predicate
             let sortDescriptor = NSSortDescriptor(key: "photo", ascending: true)
             fetchRequest.sortDescriptors = [sortDescriptor]
             
-            fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coredataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: pinSelected))-photos")
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coredataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: pinSelected))-photo")
             
             do {
                 try fetchedResultsController.performFetch()
